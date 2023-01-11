@@ -4,13 +4,18 @@
 
 import random
 
-num_list = [round(uniform(1.0, 10.5), 2) for _ in range(randint(4, 10))]
-fractional_part = []
-for item in num_list:
-    if isinstance(item, float):
-        fractional_part.append(item % 1)
-result = round(max(fractional_part) - min(fractional_part), 2)
-print(f'Созданный список: {num_list}.\nРазница между максимальной и минимальной дробной частью: {result}')
+my_list = []
+list_size = int(input('Количество чисел в списке: '))
 
-dir(uniform)
-dir(randint)
+for i in range(list_size):
+    n = random.uniform(0, 100) 
+    n = round(n, 2)
+    my_list.append(n)    
+print(my_list)
+
+res_list = []
+
+for num in my_list:
+    num = round(num%1,2)
+    res_list.append(num)
+print(f"{res_list} -> {round((max(res_list) - min(res_list)),2)}")
